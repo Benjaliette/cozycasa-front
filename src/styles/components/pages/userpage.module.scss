@@ -1,0 +1,13 @@
+@import "../../config/sizes";
+
+.main__section {
+  height: calc(100vh - $header-section-height - $navbar-section-height);
+}
+
+.user__section {
+  margin-top: 5rem;
+}
+
+.user__btn {
+  margin-top: 2rem;
+}

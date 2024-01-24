@@ -1,0 +1,15 @@
+@import "../../config/colors";
+
+$avatar-size: 5rem;
+$semi-avatar-size: calc($avatar-size /2);
+
+.avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: 50%;
+  border: 2px solid $primary;
+
+  position: absolute;
+  bottom: - $semi-avatar-size;
+  left: calc(50% - $semi-avatar-size);
+}

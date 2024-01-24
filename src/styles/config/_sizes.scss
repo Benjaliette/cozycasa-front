@@ -1,0 +1,21 @@
+$header-size: 1.3rem;
+$normal-size: 1rem;
+
+$header-section-height: 30vh;
+$mini-header-section-height: 10vh;
+$navbar-section-height: 4.25rem;
+
+@mixin respond($breakpoint) {
+  @if($breakpoint == extralarge)  {
+    @media (max-width: 1200px) { @content }
+  }
+  @if($breakpoint == large)  {
+    @media (max-width: 992px) { @content }
+  }
+  @if($breakpoint == medium)  {
+    @media (max-width: 768px) { @content }
+  }
+  @if($breakpoint == small)  {
+    @media (max-width: 576px) { @content }
+  }
+}

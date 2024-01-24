@@ -1,0 +1,31 @@
+@import "../../config/colors";
+
+.badge {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.badge__primary {
+  background-color: $primary;
+  color: $bg-white;
+}
+
+.badge__secondary {
+  background-color: $quartary;
+  color: $bg-white;
+}
+
+.badge__lg {
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.badge__sm {
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 1rem;
+}

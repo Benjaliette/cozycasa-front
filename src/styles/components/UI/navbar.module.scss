@@ -1,0 +1,18 @@
+@import "../../config/colors";
+@import "../../config/sizes";
+
+.navbar {
+  height: $navbar-section-height;
+  width: 100vw;
+  background-color: $bg-white;
+  position: fixed;
+  bottom: 0;
+  border-radius: 1rem 1rem 0 0;
+
+  .navbar__icon {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

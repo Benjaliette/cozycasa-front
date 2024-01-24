@@ -1,0 +1,13 @@
+@import "../../config/colors";
+@import "../../config/fonts";
+
+.logo {
+  margin: 3rem 0;
+  font-size: 2rem;
+  font-family: $logo-font;
+
+  a {
+    text-decoration: none;
+    color: $secondary;
+  }
+}

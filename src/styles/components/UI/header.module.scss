@@ -1,0 +1,22 @@
+@import "../../config/colors";
+@import "../../config/sizes";
+
+.user__header {
+  background-color: $bg-dark;
+  height: $header-section-height;
+  width: 100%;
+  color: $bg-white;
+  position: relative;
+}
+
+.user__header_title {
+  position: absolute;
+  top: 5rem;
+  left: 35%;
+  width: 30%;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+}

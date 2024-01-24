@@ -1,0 +1,22 @@
+@import "../../config/sizes";
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+
+  @include respond(medium) {
+    max-width: 960px;
+  }
+
+  @include respond(small) {
+    max-width: 720px;
+  }
+
+  @include respond(medium) {
+    max-width: 540px;
+  }
+
+  @include respond(small) {
+    width: 75%;
+  }
+}
