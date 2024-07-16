@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <h1>Bienvenue chez vous</h1>
-      <img className='my-20' src={welcome} alt="Two persons looking at two screens" />
+      <img className='mb-20' src={welcome} alt="Two persons looking at two screens" />
       <Button href="/login" size="lg" color="green">
         <p>S&apos;identifier</p>
         <ArrowIcon />

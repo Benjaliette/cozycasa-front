@@ -1,0 +1,25 @@
+.form__group {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding-left: 20px;
+  margin-bottom: 2rem;
+}
+
+.form__group:focus-within {
+  outline-style: solid;
+  outline-color: var(--secondary-color);
+}
+
+.input {
+  width: 100%;
+  height: 50px;
+  font-size: 1rem;
+  color: var(--primary-color);
+  padding: 7px 20px;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  background-color: white;
+}
