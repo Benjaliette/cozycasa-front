@@ -5,13 +5,13 @@ import { useEffect } from "react";
 
 import FormInput from "./Input/FormInput";
 import { Button } from "src/components";
-import { loginUser } from "src/store/users/userActions";
+import { signupUser } from "src/store/users/userActions";
 import { clearError } from "src/store/users/userSlice";
 import classes from './Forms.module.css';
 import { ClipLoader } from "react-spinners";
 
-const LoginForm = () => {
-  const { loading, loginSuccess, error } = useSelector(
+const SignupForm = () => {
+  const { loading, signupSuccess, error } = useSelector(
     (state) => state.user
   )
 
@@ -27,24 +27,30 @@ const LoginForm = () => {
 
   useEffect(() => {
     dispatch(clearError());
-    if (loginSuccess) navigate('/todos');
-  }, [navigate, loginSuccess, dispatch])
+    if (signupSuccess) navigate('/login');
+  }, [navigate, signupSuccess, dispatch])
 
   const submitForm = (data) => {
+    if (data.password !== data.confirmPassword) {
+      alert('Password mismatch')
+    }
+
     data.identifier = data.email.toLowerCase();
-    dispatch(loginUser(data));
+    dispatch(signupUser(data));
   }
 
   return (
     <>
       <form action="" onSubmit={handleSubmit(submitForm)} className={classes.form}>
+        <FormInput type="text" id="username" placeholder="Nom d'utilisateur" register={ register } isError={ error != null }></FormInput>
         <FormInput type="email" id="email" placeholder="Email" register={ register } isError={ error != null }></FormInput>
         <FormInput type="password" id="password" placeholder="Mot de passe" register={ register } isError={ error != null }></FormInput>
+        <FormInput type="password" id="confirmPassword" placeholder="Répéter le mot de passe" register={ register } isError={ error != null }></FormInput>
         { loading ? <ClipLoader
           color={"#3B857B"}
           cssOverride={ override }
         /> :
-        <Button href="/login" size="sm" color="green" type="submit">Suivant</Button> }
+        <Button size="sm" color="green" type="submit">Suivant</Button> }
         <span className={ classes.error }>
           { error ? error : ""}
         </span>
@@ -53,4 +59,4 @@ const LoginForm = () => {
   )
 }
 
-export default LoginForm;
+export default SignupForm;

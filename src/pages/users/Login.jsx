@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { LoginForm } from "src/components";
 
 const Login = () => {
@@ -5,6 +7,9 @@ const Login = () => {
     <>
       <h1>Identification</h1>
       <LoginForm />
+      <p className='paragraph'>
+        Vous n&apos;avez pas de compte ? <Link to="/signup">Créez en un</Link>
+      </p>
     </>
   );
 }

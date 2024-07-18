@@ -1,10 +1,10 @@
 import classes from './FormInput.module.css';
-import { MailIcon, KeyIcon } from 'src/components';
+import { MailIcon, KeyIcon, UserIcon } from 'src/components';
 
 import PropTypes from "prop-types";
 import { useEffect, useState } from 'react';
 
-const FormInput = ({placeholder, type, register, isError}) => {
+const FormInput = ({placeholder, id, type, register, isError}) => {
   let icon;
   const initialClass = isError ? classes.error : "";
   const [errorClass, setErrorClass] = useState(initialClass);
@@ -17,12 +17,16 @@ const FormInput = ({placeholder, type, register, isError}) => {
     setErrorClass("");
   }
 
-  switch (type) {
+  switch (id) {
     case "email":
       icon = <MailIcon />
       break;
     case "password":
+    case "confirmPassword":
       icon = <KeyIcon />
+      break;
+    case "username":
+      icon = < UserIcon />
       break;
     default:
       break;
@@ -33,10 +37,10 @@ const FormInput = ({placeholder, type, register, isError}) => {
       { icon }
       <input
         type={ type }
-        id={ type }
+        id={ id }
         className={classes.input}
         placeholder={ placeholder }
-        { ...register(type, { onChange: modifyError}) }
+        { ...register(id, { onChange: modifyError}) }
       />
     </div>
   )
@@ -46,6 +50,7 @@ const FormInput = ({placeholder, type, register, isError}) => {
 FormInput.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.string,
+  id: PropTypes.string,
   register: PropTypes.any,
   isError: PropTypes.bool
 };
