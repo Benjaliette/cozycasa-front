@@ -10,6 +10,7 @@
 .form__group:focus-within {
   outline-style: solid;
   outline-color: var(--secondary-color);
+  outline-width: 2px;
 }
 
 .input {
@@ -22,4 +23,10 @@
   outline: none;
   border-radius: 1rem;
   background-color: white;
+}
+
+.error {
+  outline-style: solid;
+  outline-color: var(--tertiary-color);
+  outline-width: 1px;
 }

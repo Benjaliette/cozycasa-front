@@ -2,7 +2,7 @@ import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
 import Layout from 'src/layouts/Layout';
-import { Home, Login, Signup } from './pages';
+import { Home, Login, Signup, TodoList } from './pages';
 
 const App = () => {
   return (
@@ -11,6 +11,7 @@ const App = () => {
         <Route index element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/todos" element={<TodoList />}></Route>
       </Route>
     </Routes>
   )

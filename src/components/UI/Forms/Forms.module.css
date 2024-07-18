@@ -1,0 +1,4 @@
+.error {
+  color: var(--tertiary-color);
+  font-size: 0.8em;
+}
