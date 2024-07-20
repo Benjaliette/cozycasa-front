@@ -3,6 +3,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const backendUrl = 'http://localhost:3000';
 
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'http://localhost:5173';
+
 export const getTodos = createAsyncThunk(
   'todo/getTodos',
   async (accessToken, { rejectWithValue }) => {
@@ -10,7 +13,7 @@ export const getTodos = createAsyncThunk(
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Origin': '*',
           'accept': 'application/json',
           'authorization': `Bearer ${accessToken}`
         }

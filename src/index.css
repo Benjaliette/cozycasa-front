@@ -33,6 +33,13 @@ body {
   background: linear-gradient(180deg, rgba(253,242,226,1) 0%, rgba(246,250,243,1) 100%);
 }
 
+#root {
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 h1 {
   font-weight: 800;
   font-size: 1.4rem;

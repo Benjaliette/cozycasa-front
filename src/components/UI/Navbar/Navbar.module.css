@@ -1,0 +1,21 @@
+.navbar {
+  height: 4rem;
+  background-color: white;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.navbar__items {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbar__item {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+}

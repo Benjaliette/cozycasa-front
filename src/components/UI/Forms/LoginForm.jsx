@@ -27,7 +27,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     dispatch(clearError());
-    if (loginSuccess) navigate('/todos');
+    if (loginSuccess) navigate('/users/todos');
   }, [navigate, loginSuccess, dispatch])
 
   const submitForm = (data) => {

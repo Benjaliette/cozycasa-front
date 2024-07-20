@@ -5,7 +5,6 @@ const initialState = {
   loading: false,
   userInfo : {},
   accessToken: null,
-  refreshToken: null,
   error: null,
   signupSuccess: false,
   loginSuccess: false
@@ -32,7 +31,6 @@ const userSlice = createSlice({
       state.loginSuccess = true;
       state.error = null;
       state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
       state.userInfo = payload.user;
     }),
     builder.addCase(loginUser.rejected, (state, { payload }) => {
@@ -76,7 +74,8 @@ const userSlice = createSlice({
       state.error = null;
     }),
     builder.addCase(refreshingToken.fulfilled, (state, { payload }) => {
-      console.log(payload)
+      state.loading = false;
+      state.accessToken = payload.accessToken;
     }),
     builder.addCase(refreshingToken.rejected, (state, { payload }) => {
       state.loading = false;

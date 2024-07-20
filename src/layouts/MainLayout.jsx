@@ -1,7 +1,7 @@
 import { Logo } from 'src/components';
 import { Outlet } from 'react-router-dom';
 
-const Layout = () => {
+const MainLayout = () => {
   return (
     <main className='container mx-auto px-10'>
       <Logo />
@@ -10,4 +10,4 @@ const Layout = () => {
   )
 }
 
-export default Layout;
+export default MainLayout;

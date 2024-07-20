@@ -3,6 +3,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const backendUrl = 'http://localhost:3000';
 
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'http://localhost:5173';
+
 export const loginUser = createAsyncThunk(
   'user/login',
   async ({ identifier, password }, { rejectWithValue }) => {
@@ -10,7 +13,7 @@ export const loginUser = createAsyncThunk(
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Origin': '*',
           'accept': 'application/json'
         }
       }
@@ -39,7 +42,7 @@ export const signupUser = createAsyncThunk(
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Origin': '*',
           'accept': 'application/json'
         }
       }
@@ -63,19 +66,18 @@ export const signupUser = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk(
   'users/logout',
-  async (refreshToken, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Origin': '*',
           'accept': 'application/json'
         }
       }
 
-      const response = await axios.post(
+      const response = await axios.delete(
         `${backendUrl}/api/v1/users/logout`,
-        { token: refreshToken },
         config
       )
 
@@ -92,22 +94,19 @@ export const logoutUser = createAsyncThunk(
 
 export const refreshingToken = createAsyncThunk(
   'users/refreshingToken',
-  async ({email, refreshToken}, { rejectWithValue }) => {
-    console.log("refreshing")
+  async ({identifier}, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Origin': '*',
           'accept': 'application/json'
         }
       }
 
-      console.log(refreshToken);
-
       const response = await axios.post(
         `${backendUrl}/api/v1/users/refreshToken`,
-        { identifier: email, token: refreshToken },
+        { identifier},
         config
       )
 
