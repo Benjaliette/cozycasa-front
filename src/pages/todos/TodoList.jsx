@@ -5,12 +5,11 @@ import { useDispatch } from "react-redux";
 
 import { AddBadge, AddTodoForm, TodoItem } from "src/components";
 import { createTodo } from "src/store/todos/todoActions";
+import { getTodosSorted } from "src/store/todos/todoSelector";
 
 const TodoList = () => {
   const [ isForm, setIsForm ] = useState(false);
-  const { todos } = useSelector(
-    (state) => state.todo
-  );
+  const todos = useSelector(state => getTodosSorted(state))
 
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -21,9 +20,10 @@ const TodoList = () => {
     setIsForm(false);
   }
 
-  const todoComponents = todos.map((todo) => {
-    return <TodoItem key={todo._id} todo={ todo } />
-  })
+  const todoComponents = todos
+    .map((todo) => {
+      return <TodoItem key={todo._id} todo={ todo } />
+    })
 
   return (
     <>
