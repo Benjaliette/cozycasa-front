@@ -1,0 +1,21 @@
+.badge {
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge__green {
+  background-color: var(--secondary-color);
+  color: var(--bg-white-color);
+}
+
+.badge__bottom_right {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+}

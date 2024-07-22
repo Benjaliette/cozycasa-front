@@ -23,7 +23,13 @@
 
   --primary-color: #41404F;
   --secondary-color: #3B857B;
-  --tertiary-color: #A13F4B
+  --tertiary-color: #A13F4B;
+  --quartary-color: #EDC07D;
+
+  --bg-white-color: #FFFFFF;
+  --bg-lightgray-color: #E3E2E5;
+  --bg-darkgray-color: #898588;
+  --bg-dark-color: #BEAD90;
 }
 
 body {

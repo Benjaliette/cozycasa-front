@@ -11,7 +11,7 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
+} from 'redux-persist';
 
 const persistConfig = {
   key: 'root',
@@ -32,6 +32,6 @@ export const store = configureStore({
       ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
     }
   })
-})
+});
 
 export const persistor = persistStore(store)

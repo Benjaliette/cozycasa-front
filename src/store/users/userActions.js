@@ -94,7 +94,7 @@ export const logoutUser = createAsyncThunk(
 
 export const refreshingToken = createAsyncThunk(
   'users/refreshingToken',
-  async ({identifier}, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
@@ -106,7 +106,6 @@ export const refreshingToken = createAsyncThunk(
 
       const response = await axios.post(
         `${backendUrl}/api/v1/users/refreshToken`,
-        { identifier},
         config
       )
 

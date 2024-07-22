@@ -10,7 +10,7 @@ const TodoLayout = () => {
 
   return (
     <>
-      <main className='container mx-auto px-10'>
+      <main className="container mx-auto px-10">
         <TasksHeader username={ userInfo.username } />
         <Outlet />
       </main>

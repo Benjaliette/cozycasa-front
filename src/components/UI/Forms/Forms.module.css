@@ -6,3 +6,40 @@
 .form {
   height: 28rem;
 }
+
+.form__todo {
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: var(--bg-white-color);
+}
+
+.close {
+  display: none;
+}
+
+.input__todo {
+  outline: none;
+  height: 50px;
+  border-bottom: 1px solid var(--secondary-color);
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.modal__backdrop {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background-color:rgba(0,0,0,0.2);
+}

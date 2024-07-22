@@ -6,12 +6,13 @@ import { useEffect } from "react";
 import FormInput from "./Input/FormInput";
 import { Button } from "src/components";
 import { loginUser } from "src/store/users/userActions";
+import { getTodos } from "src/store/todos/todoActions";
 import { clearError } from "src/store/users/userSlice";
 import classes from './Forms.module.css';
 import { ClipLoader } from "react-spinners";
 
 const LoginForm = () => {
-  const { loading, loginSuccess, error } = useSelector(
+  const { loading, loginSuccess, error, accessToken } = useSelector(
     (state) => state.user
   )
 
@@ -27,8 +28,12 @@ const LoginForm = () => {
 
   useEffect(() => {
     dispatch(clearError());
-    if (loginSuccess) navigate('/users/todos');
-  }, [navigate, loginSuccess, dispatch])
+    if (loginSuccess) {
+      dispatch(getTodos(accessToken));
+      navigate('/users/todos');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loginSuccess])
 
   const submitForm = (data) => {
     data.identifier = data.email.toLowerCase();

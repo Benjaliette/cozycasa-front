@@ -3,15 +3,15 @@ import welcome from "src/assets/welcome.svg";
 
 import { Link } from "react-router-dom";
 
-// import { persistStore } from 'redux-persist';
-// import { store } from "src/store/store";
+import { persistStore } from 'redux-persist';
+import { store } from "src/store/store";
 
 const Home = () => {
-  // const persistor = persistStore(store);
-  // persistor.pause();
-  //   persistor.flush().then(() => {
-  //     return persistor.purge();
-  //   });
+  const persistor = persistStore(store);
+  persistor.pause();
+    persistor.flush().then(() => {
+      return persistor.purge();
+    });
 
   return (
     <>

@@ -1,8 +1,8 @@
 // ITEMS COMPONENTS //
-import Todo from './items/Todos/Todo';
+import TodoItem from './items/Todos/TodoItem';
 
 export {
-  Todo
+  TodoItem
 }
 
 // UI COMPONENTS //
@@ -13,6 +13,9 @@ import Logo from './UI/Logo/Logo';
 // Button
 import Button from './UI/Button/Button';
 
+// Badge
+import AddBadge from './UI/Badge/AddBadge';
+
 // Icons
 import ArrowIcon from './UI/Icons/ArrowIcon';
 import MailIcon from './UI/Icons/MailIcon';
@@ -22,6 +25,7 @@ import UserIcon from './UI/Icons/UserIcon';
 // Forms
 import LoginForm from './UI/Forms/LoginForm';
 import SignupForm from './UI/Forms/SignupForm';
+import AddTodoForm from './UI/Forms/AddTodoForm';
 
 // Header
 import TasksHeader from './UI/Header/TasksHeader';
@@ -33,12 +37,14 @@ import NavItem from './UI/Navbar/NavItem';
 export {
   Logo,
   Button,
+  AddBadge,
   ArrowIcon,
   MailIcon,
   KeyIcon,
   UserIcon,
   LoginForm,
   SignupForm,
+  AddTodoForm,
   TasksHeader,
   Navbar,
   NavItem

@@ -1,0 +1,54 @@
+.todo__card {
+  background-color: var(--bg-white-color);
+  margin: 1rem 0;
+  height: 60px;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.round {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.round label {
+  background-color: var(--bg-white-color);
+  border: 1px solid var(--bg-lightgray-color);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 22px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 22px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 5px;
+  left: 6px;
+  opacity: 0;
+  position: absolute;
+  top: 7px;
+  transform: rotate(-45deg);
+  width: 9px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
