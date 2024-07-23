@@ -21,6 +21,8 @@ import ArrowIcon from './UI/Icons/ArrowIcon';
 import MailIcon from './UI/Icons/MailIcon';
 import KeyIcon from './UI/Icons/KeyIcon';
 import UserIcon from './UI/Icons/UserIcon';
+import DotsIcon from './UI/Icons/DotsIcon';
+import TrashIcon from './UI/Icons/TrashIcon';
 
 // Forms
 import LoginForm from './UI/Forms/LoginForm';
@@ -29,6 +31,9 @@ import AddTodoForm from './UI/Forms/AddTodoForm';
 
 // Header
 import TasksHeader from './UI/Header/TasksHeader';
+
+// Modals
+import DeleteModal from './UI/Modals/DeleteModal';
 
 // Navbar
 import Navbar from './UI/Navbar/Navbar';
@@ -42,10 +47,13 @@ export {
   MailIcon,
   KeyIcon,
   UserIcon,
+  DotsIcon,
+  TrashIcon,
   LoginForm,
   SignupForm,
   AddTodoForm,
   TasksHeader,
+  DeleteModal,
   Navbar,
   NavItem
 }

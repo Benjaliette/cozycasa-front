@@ -1,4 +1,5 @@
 .todo__card {
+  position: relative;
   background-color: var(--bg-white-color);
   margin: 1rem 0;
   height: 60px;
@@ -7,6 +8,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.todo__card > p {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.modal__backdrop {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background-color:rgba(0,0,0,0.2);
+  z-index: 10;
 }
 
 .round {

@@ -1,21 +1,17 @@
 import { PropTypes } from "prop-types";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 
 import classes from "./TodoItem.module.css";
-import { updateTodo } from "src/store/todos/todoActions";
-import { refreshingToken } from "src/store/users/userActions";
+import { updateTodo, deleteTodo } from "src/store/todos/todoActions";
+import { DotsIcon, DeleteModal } from "src/components";
 
 const TodoItem = ({ todo }) => {
   const [ isCompleted, setCompleted ] = useState(todo.completed);
-  const { accessToken, userInfo } = useSelector(
-    (state) => state.user
-  );
+  const [ modalOpen, setModalOpen ] = useState(false);
 
-  const { error } = useSelector(
-    (state) => state.todo
-  );
+  const modal = useRef(null);
+
   const dispatch = useDispatch();
 
   const completeTask = (e) => {
@@ -26,35 +22,51 @@ const TodoItem = ({ todo }) => {
         {
           todoId: todo._id,
           title: todo.title,
-          completed: !isCompleted,
-          accessToken
+          completed: !isCompleted
         }
       )
     );
-
-    if (error) {
-      dispatch(refreshingToken({identifier: userInfo.email}));
-      dispatch(
-        updateTodo(
-          {
-            todoId: todo._id,
-            title: todo.title,
-            completed: !isCompleted,
-            accessToken
-          }
-        )
-      );
-    }
   };
 
+  const handleClick = () => {
+    setModalOpen(true);
+  }
+
+  const closeModal = (e) => {
+    if (modalOpen && !modal.current?.contains(e.target)) {
+      setModalOpen(false);
+    }
+  }
+
+  const deleteItem = () => {
+    dispatch(deleteTodo({ todoId: todo._id }));
+    setModalOpen(false);
+  }
+
+  document.addEventListener('mousedown', closeModal);
+
   return (
-    <li className={ classes.todo__card } onClick={ (e) => completeTask(e) }>
-      <p>{ todo.title }</p>
-      <div className={ classes.round }>
-        <input type="checkbox" checked={ isCompleted } id={ todo._id } readOnly />
-        <label htmlFor={ todo._id }></label>
-      </div>
-    </li>
+    <>
+      { modalOpen && <div className={ classes.modal__backdrop }></div> }
+      <li className={ classes.todo__card }>
+        <div className={ classes.round }>
+          <input
+            type="checkbox"
+            checked={ isCompleted }
+            id={ todo._id }
+            readOnly
+            onClick={ (e) => completeTask(e) }
+          />
+          <label htmlFor={ todo._id }></label>
+        </div>
+        <p>{ todo.title }</p>
+        <div className='position-relative'>
+          <DotsIcon onClick={handleClick}></DotsIcon>
+          { modalOpen && <DeleteModal onClick={ deleteItem } innerRef={ modal } /> }
+        </div>
+
+      </li>
+    </>
   )
 }
 
