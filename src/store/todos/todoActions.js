@@ -1,18 +1,19 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { refreshingToken } from "../users/userActions";
+
 import { refreshingToken } from "../users/userActions";
 
-const backendUrl = 'http://localhost:3000';
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const axiosInstance = axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:5173'
+  baseURL: import.meta.env.VITE_FRONT_URL
 })
 
 export const getTodos = createAsyncThunk(
   'todo/getTodos',
   async (_, { rejectWithValue, dispatch, getState }) => {
+    console.log(backendUrl);
     try {
       const { user } = getState();
 
