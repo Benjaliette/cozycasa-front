@@ -53,6 +53,20 @@ h1 {
   font-family: var(--title-font-family);
 }
 
+h2 {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-family: var(--title-font-family);
+}
+
+h3 {
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+  font-family: var(--title-font-family);
+}
+
 .paragraph {
   font-size: 0.9rem;
   margin: 1.5rem 0;
