@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { TasksHeader, Navbar } from "src/components";
 
-const TodoLayout = () => {
+const HomeLayout = () => {
   const { userInfo } = useSelector(
     (state) => state.user
   );
@@ -19,4 +19,4 @@ const TodoLayout = () => {
   )
 }
 
-export default TodoLayout
+export default HomeLayout

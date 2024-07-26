@@ -7,9 +7,9 @@ const Navbar = ({ userId }) => {
   return (
     <nav className={ classes.navbar }>
       <ul className={ classes.navbar__items }>
-        <NavItem icon="user" href="/users/todos" />
-        <NavItem icon="user" href="#" />
-        <NavItem icon="user" href="#" />
+        <NavItem icon="todo" href="/homes/todos" />
+        <NavItem icon="note" href="/homes/notes" />
+        <NavItem icon="calendar" href="/homes/events" />
         <NavItem icon="user" href={`/users/${userId}`} />
       </ul>
     </nav>

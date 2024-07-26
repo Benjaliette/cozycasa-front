@@ -13,7 +13,6 @@ export const loginUser = createAsyncThunk(
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
           'accept': 'application/json'
         }
       }

@@ -1,0 +1,20 @@
+.header {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__user_page {
+  position: sticky;
+  height: 15rem;
+  top: 0;
+  background-color: var(--bg-dark-color);
+  color: white;
+}
+
+.header__user_title {
+  position: sticky;
+  top: 0;
+  color: white;
+}

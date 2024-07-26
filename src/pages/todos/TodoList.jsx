@@ -34,7 +34,12 @@ const TodoList = () => {
       <AddTodoForm isOpen={ isForm } onClick={ () => setIsForm(false)} onSubmit={ handleSubmit(submitForm) } register={ register } />
       {
         !isForm &&
-        <AddBadge onClick={ () => setIsForm(true) } position='botright' />
+        <AddBadge
+          onClick={ () => setIsForm(true) }
+          position='botright'
+          color="green"
+          size="lg"
+        />
       }
     </>
   )

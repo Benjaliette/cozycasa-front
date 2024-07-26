@@ -1,7 +1,9 @@
 import MainLayout from './MainLayout';
-import TodoLayout from './TodoLayout';
+import HomeLayout from './HomeLayout';
+import UserLayout from './UserLayout';
 
 export {
   MainLayout,
-  TodoLayout
+  HomeLayout,
+  UserLayout
 }

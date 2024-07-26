@@ -1,16 +1,83 @@
 .badge {
   height: 40px;
   width: 40px;
-  font-size: 20px;
   font-weight: bold;
   border-radius: 50%;
+  position: relative;
+}
+
+.bagdge.lg {
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+}
+
+.badge.lg.plus:before,
+.badge.lg.plus:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background:white;
+}
+
+.badge.lg.plus:before{
+    width: 3px;
+    margin: 3px auto;
+}
+
+.badge.lg.plus:after{
+    margin: auto 3px;
+    height: 3px;
+}
+
+.badge.sm {
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+}
+
+.badge.sm.plus:before,
+.badge.sm.plus:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background:white;
+}
+
+.badge.sm.plus:before{
+    width: 2px;
+    margin: 2px auto;
+}
+
+.badge.sm.plus:after{
+    margin: auto 2px;
+    height: 2px;
+}
+
+.badge.arrow {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.badge__green {
+.green {
   background-color: var(--secondary-color);
+  color: var(--bg-white-color);
+}
+
+.yellow {
+  background-color: var(--quartary-color);
+  color: var(--bg-white-color)
+}
+
+.dark {
+  background-color: var(--primary-color);
   color: var(--bg-white-color);
 }
 

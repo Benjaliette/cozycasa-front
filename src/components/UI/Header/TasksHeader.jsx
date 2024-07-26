@@ -1,4 +1,4 @@
-import classes from './TasksHeader.module.css';
+import classes from './Header.module.css';
 
 import { PropTypes } from 'prop-types';
 

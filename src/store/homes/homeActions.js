@@ -10,8 +10,8 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_FRONT_URL
 })
 
-export const getTodos = createAsyncThunk(
-  'todo/getTodos',
+export const getHomes = createAsyncThunk(
+  'home/getHomes',
   async (_, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
@@ -19,14 +19,13 @@ export const getTodos = createAsyncThunk(
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
           'accept': 'application/json',
           'authorization': `Bearer ${user.accessToken}`
         }
       }
 
       const response = await axiosInstance.get(
-        `${backendUrl}/api/v1/todos`,
+        `${backendUrl}/api/v1/homes`,
         config
       )
 
@@ -36,7 +35,7 @@ export const getTodos = createAsyncThunk(
         error.config._retry = true;
         await dispatch(refreshingToken()).unwrap();
 
-        await dispatch(getTodos());
+        await dispatch(getHomes());
       }
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
@@ -47,8 +46,8 @@ export const getTodos = createAsyncThunk(
   }
 )
 
-export const createTodo = createAsyncThunk(
-  'todo/createTodo',
+export const createHome = createAsyncThunk(
+  'home/createHome',
   async({title}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
@@ -62,7 +61,7 @@ export const createTodo = createAsyncThunk(
       }
 
       const response = await axiosInstance.post(
-        `${backendUrl}/api/v1/todos`,
+        `${backendUrl}/api/v1/homes`,
         { title },
         config
       )
@@ -75,7 +74,7 @@ export const createTodo = createAsyncThunk(
 
         const title = JSON.parse(error.config.data).title;
 
-        await dispatch(createTodo({ title }));
+        await dispatch(createHome({ title }));
       }
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
@@ -86,9 +85,9 @@ export const createTodo = createAsyncThunk(
   }
 )
 
-export const updateTodo = createAsyncThunk(
-  'todo/updateTodo',
-  async({todoId, title, completed}, { rejectWithValue, dispatch, getState }) => {
+export const updateHome = createAsyncThunk(
+  'home/updateHome',
+  async({homeId, title, completed}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
@@ -101,8 +100,8 @@ export const updateTodo = createAsyncThunk(
       }
 
       const response = await axiosInstance.put(
-        `${backendUrl}/api/v1/todos/${todoId}`,
-        { todoId, title, completed },
+        `${backendUrl}/api/v1/homes/${homeId}`,
+        { homeId, title, completed },
         config
       )
 
@@ -112,9 +111,9 @@ export const updateTodo = createAsyncThunk(
         error.config._retry = true;
         await dispatch(refreshingToken()).unwrap();
 
-        const { todoId, title, completed } = JSON.parse(error.config.data);
+        const { homeId, title, completed } = JSON.parse(error.config.data);
 
-        await dispatch(updateTodo({ todoId, title, completed }));
+        await dispatch(updateHome({ homeId, title, completed }));
       }
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
@@ -125,9 +124,9 @@ export const updateTodo = createAsyncThunk(
   }
 )
 
-export const deleteTodo = createAsyncThunk(
-  'todo/deleteTodo',
-  async({todoId}, { rejectWithValue, dispatch, getState }) => {
+export const deleteHome = createAsyncThunk(
+  'home/deleteHome',
+  async({homeId}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
@@ -140,7 +139,7 @@ export const deleteTodo = createAsyncThunk(
       }
 
       const response = await axiosInstance.delete(
-        `${backendUrl}/api/v1/todos/${todoId}`,
+        `${backendUrl}/api/v1/homes/${homeId}`,
         config
       )
 
@@ -150,9 +149,9 @@ export const deleteTodo = createAsyncThunk(
         error.config._retry = true;
         await dispatch(refreshingToken()).unwrap();
 
-        const { todoId } = JSON.parse(error.config.data);
+        const { homeId } = JSON.parse(error.config.data);
 
-        await dispatch(updateTodo({ todoId }));
+        await dispatch(updateHome({ homeId }));
       }
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
