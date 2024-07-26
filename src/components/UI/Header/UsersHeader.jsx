@@ -9,47 +9,23 @@ const UsersHeader = ({ username }) => {
 
   const { scrollYProgress } = useScroll();
 
-  let headerY;
-  let titleY;
-  let opacity;
+  const headerY = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    ['0%', '-60%']
+  )
 
-  if (scrollYProgress.current === 1) {
-    headerY = useTransform(
-      scrollYProgress,
-      [0, 0.5],
-      ['0%', '-60%']
-    )
+  const titleY = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    ['0%', '120%']
+  )
 
-    titleY = useTransform(
-      scrollYProgress,
-      [0, 0.5],
-      ['0%', '120%']
-    )
-
-    opacity = useTransform(
-      scrollYProgress,
-      [0, 0.1],
-      [1, 0],
-    )
-  } else {
-    headerY = useTransform(
-      scrollYProgress,
-      [1, 0, 0.5],
-      ['0%', '0%', '-60%']
-    )
-
-    titleY = useTransform(
-      scrollYProgress,
-      [1, 0, 0.5],
-      ['0%', '0%', '120%']
-    )
-
-    opacity = useTransform(
-      scrollYProgress,
-      [1, 0, 0.1],
-      [1, 1, 0],
-    )
-  }
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    [1, 0],
+  )
 
   return (
     <motion.header

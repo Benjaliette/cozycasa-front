@@ -22,34 +22,17 @@ const Avatar = ({ src, alt, scrollValue, size }) => {
   }
 
   if (scrollValue) {
-    let avatarX;
-    let avatarY;
+    const avatarX = useTransform(
+      scrollValue,
+      [0, 0.25, 0.5],
+      ['0%', '90%', '180%']
+    )
 
-    if (scrollValue.current === 1) {
-      avatarX = useTransform(
-        scrollValue,
-        [0, 0.25, 0.5],
-        ['0%', '90%', '180%']
-      )
-
-      avatarY = useTransform(
-        scrollValue,
-        [0, 0.25, 0.5],
-        ['0%', '-30%', '-60%']
-      )
-    } else {
-      avatarX = useTransform(
-        scrollValue,
-        [1, 0, 0.25, 0.5],
-        ['0%', '0%', '90%', '180%']
-      )
-
-      avatarY = useTransform(
-        scrollValue,
-        [1, 0, 0.25, 0.5],
-        ['0%', '0%', '-30%', '-60%']
-      )
-    }
+    const avatarY = useTransform(
+      scrollValue,
+      [0, 0.25, 0.5],
+      ['0%', '-30%', '-60%']
+    )
 
     return (
       <motion.img

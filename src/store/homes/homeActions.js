@@ -48,7 +48,7 @@ export const getHomes = createAsyncThunk(
 
 export const createHome = createAsyncThunk(
   'home/createHome',
-  async({title}, { rejectWithValue, dispatch, getState }) => {
+  async({name}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
@@ -62,7 +62,7 @@ export const createHome = createAsyncThunk(
 
       const response = await axiosInstance.post(
         `${backendUrl}/api/v1/homes`,
-        { title },
+        { name },
         config
       )
 

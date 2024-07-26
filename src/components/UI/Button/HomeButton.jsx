@@ -1,12 +1,15 @@
 import classes from "./Button.module.css";
 
-const HomeButton = ({ children }) => {
+const HomeButton = ({ children, onClick }) => {
   return (
-    <button className={[
-      classes.btn,
-      classes.lg,
-      classes.white
-    ].join(' ')}>
+    <button
+      className={[
+        classes.btn,
+        classes.lg,
+        classes.white
+      ].join(' ')}
+      onClick={ onClick }
+    >
       { children }
     </button>
   )

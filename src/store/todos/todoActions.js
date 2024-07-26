@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 
 export const getTodos = createAsyncThunk(
   'todo/getTodos',
-  async (_, { rejectWithValue, dispatch, getState }) => {
+  async ({homeId}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
@@ -26,7 +26,7 @@ export const getTodos = createAsyncThunk(
       }
 
       const response = await axiosInstance.get(
-        `${backendUrl}/api/v1/todos`,
+        `${backendUrl}/api/v1/homes/${homeId}/todos`,
         config
       )
 
@@ -49,7 +49,7 @@ export const getTodos = createAsyncThunk(
 
 export const createTodo = createAsyncThunk(
   'todo/createTodo',
-  async({title}, { rejectWithValue, dispatch, getState }) => {
+  async({homeId, title}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
@@ -62,7 +62,7 @@ export const createTodo = createAsyncThunk(
       }
 
       const response = await axiosInstance.post(
-        `${backendUrl}/api/v1/todos`,
+        `${backendUrl}/api/v1/homes/${homeId}/todos`,
         { title },
         config
       )
@@ -88,7 +88,7 @@ export const createTodo = createAsyncThunk(
 
 export const updateTodo = createAsyncThunk(
   'todo/updateTodo',
-  async({todoId, title, completed}, { rejectWithValue, dispatch, getState }) => {
+  async({homeId, todoId, title, completed}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
@@ -101,7 +101,7 @@ export const updateTodo = createAsyncThunk(
       }
 
       const response = await axiosInstance.put(
-        `${backendUrl}/api/v1/todos/${todoId}`,
+        `${backendUrl}/api/v1/homes/${homeId}/todos/${todoId}`,
         { todoId, title, completed },
         config
       )
@@ -127,7 +127,7 @@ export const updateTodo = createAsyncThunk(
 
 export const deleteTodo = createAsyncThunk(
   'todo/deleteTodo',
-  async({todoId}, { rejectWithValue, dispatch, getState }) => {
+  async({homeId, todoId}, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
@@ -140,7 +140,7 @@ export const deleteTodo = createAsyncThunk(
       }
 
       const response = await axiosInstance.delete(
-        `${backendUrl}/api/v1/todos/${todoId}`,
+        `${backendUrl}/api/v1/homes/${homeId}/todos/${todoId}`,
         config
       )
 

@@ -44,6 +44,7 @@ import CalendarIcon from './UI/Icons/CalendarIcon';
 import LoginForm from './UI/Forms/LoginForm';
 import SignupForm from './UI/Forms/SignupForm';
 import AddTodoForm from './UI/Forms/AddTodoForm';
+import CreateHomeForm from './UI/Forms/CreateHomeForm';
 
 // Header
 import TasksHeader from './UI/Header/TasksHeader';
@@ -51,6 +52,7 @@ import UsersHeader from './UI/Header/UsersHeader';
 
 // Modals
 import DeleteModal from './UI/Modals/DeleteModal';
+import FormModal from './UI/Modals/FormModal';
 
 // Navbar
 import Navbar from './UI/Navbar/Navbar';
@@ -77,9 +79,11 @@ export {
   LoginForm,
   SignupForm,
   AddTodoForm,
+  CreateHomeForm,
   TasksHeader,
   UsersHeader,
   DeleteModal,
+  FormModal,
   Navbar,
   NavItem
 }

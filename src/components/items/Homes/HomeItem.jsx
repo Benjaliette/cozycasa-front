@@ -1,13 +1,18 @@
 import { PropTypes } from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import classes from "./HomeItem.module.css";
 import { Card } from "src/components";
-import { useNavigate } from "react-router-dom";
+import { getTodos } from "src/store/todos/todoActions";
 
 const HomeItem = ({ home }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleClick = () => {
-    navigate('/homes/todos')
+    dispatch(getTodos({ homeId: home._id }));
+    navigate(`/homes/${home._id}/todos`)
   }
 
   return (
