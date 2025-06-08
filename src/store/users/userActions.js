@@ -6,20 +6,24 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL;
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = import.meta.env.VITE_FRONT_URL;
 
+const headers = {
+          'Content-Type': 'application/json',
+          // 'Access-Control-Allow-Origin': '*',
+          'accept': 'application/json',
+          'API-KEY': import.meta.env.VITE_API_KEY
+        }
+
 export const loginUser = createAsyncThunk(
   'user/login',
   async ({ identifier, password }, { rejectWithValue }) => {
     try {
       const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json'
-        }
+        headers
       }
 
       const response = await axios.post(
         `${backendUrl}/api/v1/users/login`,
-        { identifier, password },
+        { email: identifier, password },
         config
       )
 
@@ -39,11 +43,7 @@ export const signupUser = createAsyncThunk(
   async ({ username, email, password }, { rejectWithValue }) => {
     try {
       const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
-          'accept': 'application/json'
-        }
+        headers
       }
 
       const response = await axios.post(
@@ -68,11 +68,7 @@ export const logoutUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
-          'accept': 'application/json'
-        }
+        headers
       }
 
       const response = await axios.delete(
@@ -96,11 +92,7 @@ export const refreshingToken = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
-          'accept': 'application/json'
-        }
+        headers
       }
 
       const response = await axios.post(

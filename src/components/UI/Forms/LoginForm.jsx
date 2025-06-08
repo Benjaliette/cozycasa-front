@@ -30,7 +30,7 @@ const LoginForm = () => {
     dispatch(clearError());
     if (loginSuccess) {
       dispatch(getHomes());
-      navigate(`/users/${userInfo._id}`);
+      navigate(`/users/${userInfo.id}`);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginSuccess, userInfo])

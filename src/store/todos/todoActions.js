@@ -10,6 +10,13 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_FRONT_URL
 })
 
+const headers = {
+  'Content-Type': 'application/json',
+  // 'Access-Control-Allow-Origin': '*',
+  'accept': 'application/json',
+  'API-KEY': import.meta.env.VITE_API_KEY
+}
+
 export const getTodos = createAsyncThunk(
   'todo/getTodos',
   async ({homeId}, { rejectWithValue, dispatch, getState }) => {
@@ -18,9 +25,7 @@ export const getTodos = createAsyncThunk(
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
-          'accept': 'application/json',
+          ...headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }
@@ -55,8 +60,7 @@ export const createTodo = createAsyncThunk(
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json',
+          ...headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }
@@ -94,8 +98,7 @@ export const updateTodo = createAsyncThunk(
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json',
+          ...headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }
@@ -133,8 +136,7 @@ export const deleteTodo = createAsyncThunk(
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json',
+          ...headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }

@@ -10,16 +10,24 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_FRONT_URL
 })
 
+const headers = {
+  'Content-Type': 'application/json',
+  // 'Access-Control-Allow-Origin': '*',
+  'accept': 'application/json',
+  'API-KEY': import.meta.env.VITE_API_KEY
+}
+
 export const getHomes = createAsyncThunk(
   'home/getHomes',
   async (_, { rejectWithValue, dispatch, getState }) => {
     try {
       const { user } = getState();
 
+      console.log(user.accessToken);
+
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json',
+          ... headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }
@@ -54,8 +62,7 @@ export const createHome = createAsyncThunk(
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json',
+          ... headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }
@@ -93,8 +100,7 @@ export const updateHome = createAsyncThunk(
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json',
+          ... headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }
@@ -132,8 +138,7 @@ export const deleteHome = createAsyncThunk(
 
       const config = {
         headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json',
+          ... headers,
           'authorization': `Bearer ${user.accessToken}`
         }
       }
